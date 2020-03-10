@@ -13,7 +13,7 @@
 			<img src="img/logo.png" class="logo" alt="logo">
 			<div class="menu">
 				<a href="#">Qui sommes-nous ?</a>
-				<a href="#">Services</a>
+				<a href="#" class="underline">Services</a>
 				<a href="#">Réalisations</a>
 				<a href="#">Blog</a>
 				<a href="#">Contact</a>
@@ -56,10 +56,16 @@
 		</main>
 		<footer>
 			<h2>Inscrivez-vous à notre Newsletter</h2>
-			<div>
+			<div class="form-mail">
 				<input type="mail" name="" placeholder="Votre adresse email">	
 				<button id="submit">Ok</button>
 			</div>
 		</footer>
+		<script>
+			document.getElementById('burger').addEventListener('click', ()=>{
+				document.getElementById('burger').classList.toggle('active');
+				document.querySelector('.navbar-menu').classList.toggle('active');
+			});
+		</script>
 	</body>
 </html>
