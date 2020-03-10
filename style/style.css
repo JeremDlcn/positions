@@ -48,6 +48,11 @@ a {
     text-decoration: none;
 }
 
+strong {
+    text-decoration: underline;
+    color: var(--primary-color);
+    font-weight: normal;
+}
 
 /*Header*/
 header, main{
@@ -155,6 +160,7 @@ header {
 /*body of the page*/
 main {
     position: relative;
+        overflow: hidden;
 }
 
 main::after {
@@ -166,7 +172,6 @@ main::after {
     top: 50vh;
     left: 0;
     z-index: -5;
-
 }
 
 /*Hero-image*/
@@ -245,19 +250,81 @@ h1{
 }
 
 
-/**/
+/*Branding*/
+#branding {
+    margin: 6rem 0;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+}
 
+#branding::after {
+    content: ' ';
+    background: url('../img/symbol.png') no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40vw;
+    height: 90vh;
+    z-index: -1;
+}
 
+.branding-container {
+    width: 70%;
+}
+
+#branding h2 {
+    font-size: 2.3rem;
+    padding-top: 5rem;
+    margin-bottom: 2rem;
+    line-height: 3rem;
+}
+
+#branding p {
+    font-size: 1.3rem;
+}
 
 /*Footer*/
 footer {
     display: flex;
-    height: 10vh;
+    align-items: center;
+    justify-content: space-around;
+    height: 20vh;
     background-color: var(--background);
+}
+
+footer h2 {
+    font-size: 2rem;
 }
 
 .form-mail {
     background-color: var(--secondary-color);
+    width: 40vw;
+    height: 4rem;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-mail input{
+    background: transparent;
+    border: none;
+    padding-left: 1.5rem;
+    font-size: 1.2rem;
+    width: 100%;
+    outline: none;
+}
+
+.form-mail button {
+    background-color: var(--background);
+    color: var(--primary-color);
+    border: none;
+    padding: 1rem;
+    margin: 0 .5rem;
+    border-radius: 10px;
+    outline: none;
+    font-size: 1rem;
 }
 
 
