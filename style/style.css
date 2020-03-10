@@ -303,7 +303,7 @@ footer h2 {
 .form-mail {
     background-color: var(--secondary-color);
     width: 40vw;
-    height: 4rem;
+    min-height: 4rem;
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
@@ -353,9 +353,7 @@ footer h2 {
         margin-left: 20px;
         font-size: .8rem;
         margin: 10px 20px 2rem 0;
-        
     }
-    
     main::after{
         top: 30vh;
     }
