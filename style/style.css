@@ -80,22 +80,25 @@ header {
     margin-right: 2rem;
     display: flex;
     align-items: center;
-}
-
-.underline {
     position: relative;
 }
-.underline::after {
+
+.menu a::after {
     content: ' ';
     position: absolute;
     bottom: 0;
     left: 35%;
     background-color: var(--primary-color);
-    width: 20px;
+    width: 0px;
     height: 2px;
+    transition: all 200ms ease-in;
 }
 
-#account {
+.menu a:hover::after {
+    width: 20px;
+}
+
+.account {
     background-color: var(--primary-color);
     color: var(--background);
     font-size: 1rem;
@@ -107,12 +110,12 @@ header {
     border-radius: 10px;
 }
 
-#account img {
+.account img {
     margin-right: 1rem;
     width: 23px;
 }
 
-#account p{
+.account p{
     margin-bottom: 3px;
 }
 
@@ -129,12 +132,13 @@ header {
     height: 100vh;
     position: absolute;
     top: 8vh;
-    display: none;
-    flex-direction: column;
+    pointer-events: none;
+    display: flex;
     padding-top: 5rem;
     flex-direction: column;
     background-color: var(--secondary-color);
-
+    transform: translateX(-100vh);
+    transition: transform 400ms ease-out;
 }
 
 .navbar-menu a {
@@ -145,16 +149,21 @@ header {
     position: relative;
 }
 
-.navbar-menu a:hover::after {
+.navbar-menu a::after {
     content: ' ';
     position: absolute;
     bottom: -7px;
     left: 0;
     height: 3px;
-    width: 40px;
+    width: 0;
     margin-left: 10vw;
     border-radius: 15px;
     background-color: var(--primary-color);
+    transition: all 200ms ease-in;
+}
+
+.navbar-menu a:hover::after {
+    width: 40px;
 }
 
 
@@ -177,11 +186,17 @@ main::after {
     z-index: -5;
 }
 
+
+
+
 /*Hero-image*/
 #hero img{
     width: 100%;
     border-radius: 10px;
 }
+
+
+
 
 /*About Us*/
 #about-us {
@@ -212,6 +227,9 @@ h1{
 }
 
 
+
+
+
 /*Services*/
 #service h2 {
     font-size: 1.4rem;
@@ -235,6 +253,12 @@ h1{
     padding: 2rem 3rem;
     border-radius: 10px;
     box-shadow: var(--shadow);
+    transition: transform .3s ease-in-out;
+}
+
+.services:hover {
+    transform: scale(1.05);
+    perspective: 2rem;
 }
 
 .services img {
@@ -252,6 +276,9 @@ h1{
     font-size: 1.2rem;
     text-align: center;
 }
+
+
+
 
 
 /*Branding*/
@@ -288,6 +315,9 @@ h1{
     font-size: 1.3rem;
 }
 
+
+
+
 /*Footer*/
 footer {
     display: flex;
@@ -309,18 +339,23 @@ footer h2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
-.form-mail input{
+#mail-contact {
     background: transparent;
     border: none;
     padding-left: 1.5rem;
     font-size: 1.2rem;
     width: 100%;
+    height: 4rem;
     outline: none;
 }
 
-.form-mail button {
+
+.form-mail button,
+#submit.correct::before,
+#submit.incorrect::before {
     background-color: var(--background);
     color: var(--primary-color);
     border: none;
@@ -329,6 +364,24 @@ footer h2 {
     border-radius: 10px;
     outline: none;
     font-size: 1rem;
+}
+
+#submit.correct::before,
+#submit.incorrect::before {
+    position: absolute;
+    left: 0;
+    top:.5rem;
+}
+
+#submit.correct::before{
+    content: 'Vous êtes inscrits à notre newsletter !';
+    color: green;
+}
+
+#submit.incorrect::before {
+    content: 'Adresse email invalide';
+    color: red;
+
 }
 
 
@@ -400,6 +453,12 @@ footer h2 {
         display: none; 
     }
 
+    .account {
+        align-self: flex-start;
+        margin-left: 10vw;
+        margin-bottom: 2rem;
+    }
+
     header > a {
         padding: 1rem;
     }
@@ -419,19 +478,45 @@ footer h2 {
         top: 4vh;
         left: 30px;
         border: none;
+        border-top: 4px solid var(--main-font);
+        border-bottom: 4px solid var(--main-font);
         background-color: transparent;
         width: 30px;
-        height: 30px;
-        background: center url('../img/icon_burger.png') no-repeat;
+        height: 20px;
         outline: none;
+        transition: all 250ms ease-in-out;
+        margin-top: 5px;
+    }
+
+    #burger::before, #burger::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 4px;
+        background: var(--main-font);
+        transform: translate(-50%, -50%);   
+        transition: transform 250ms ease-in-out;
+        position: absolute;
+        top: 50%;
+        left: 50%;
     }
     
     #burger.active {
-        background-image: url('../img/icon_close.png');
+        border-color: transparent;
+    }
+
+    #burger.active::before { 
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    #burger.active::after {
+        transform: translate(-50%, -50%) rotate(-45deg);
     }
 
     .navbar-menu.active {
-        display: flex;
+        transform: translateX(0vh);
+        pointer-events: initial;
+        transition: all 400ms ease-out;
     }
 
     main{

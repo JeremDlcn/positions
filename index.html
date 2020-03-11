@@ -4,21 +4,23 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="theme-color" content="#FA5C19"/>
+		<meta name="description" content="Chez Positions, nous pensons que chaque marque est unique. C’est pourquoi nous nous attachons à comprendre votre histoire, votre ADN, votre environnement et vos objectifs, afin de construire un récit à la fois spécifique et juste.">
+		<meta name="keywords" content="Positions, Services, Branding">
 		<link rel="icon" type="icon/png" href="img/favicon.png"/>
 		<link rel="stylesheet" href="style/style.css">
-		<title>Positions - Home</title>
+		<title>Positions</title>
 	</head>
 	<body>
 		<header>
 			<img src="img/logo.png" class="logo" alt="logo">
 			<div class="menu">
 				<a href="#">Qui sommes-nous ?</a>
-				<a href="#" class="underline">Services</a>
+				<a href="#">Services</a>
 				<a href="#">Réalisations</a>
 				<a href="#">Blog</a>
 				<a href="#">Contact</a>
-				<button id="account">
-					<img src="img/icon_person.png" alt="compte">
+				<button class="account">
+					<img src="img/icon_person.png" alt="îcône compte">
 					<p>Mon compte</p>
 				</button>
 			</div>
@@ -26,6 +28,10 @@
 				<div class="navbar-banner"></div>
 				<button id="burger"></button>
 				<div class="navbar-menu">
+					<button class="account">
+						<img src="img/icon_person.png" alt="icône compte">
+						<p>Mon compte</p>
+					</button>
 					<a href="">Qui sommes-nous ?</a>
 					<a href="">Services</a>
 					<a href="">Réalisations</a>
@@ -36,7 +42,7 @@
 		</header>
 		<main>
 			<section id="hero">
-				<img src="img/working.png">
+				<img src="img/working.png" alt="Person working">
 			</section>
 			<section id="about-us">
 				<span class="bar"></span>
@@ -121,14 +127,27 @@
 		<footer>
 			<h2>Inscrivez-vous à notre Newsletter</h2>
 			<div class="form-mail">
-				<input type="mail" name="" placeholder="Votre adresse email">	
-				<button id="submit">OK</button>
+				<input type="mail" name="email" placeholder="Votre adresse email" id="mail-contact" required>	
+				<button type="submit" id="submit">OK</button>
 			</div>
 		</footer>
 		<script>
 			document.getElementById('burger').addEventListener('click', ()=>{
 				document.getElementById('burger').classList.toggle('active');
 				document.querySelector('.navbar-menu').classList.toggle('active');
+			});
+
+			document.getElementById('submit').addEventListener('click', ()=>{
+				let mail = document.getElementById('mail-contact').reportValidity();
+				if (mail) {
+					document.getElementById('submit').classList.toggle('correct');
+					setTimeout(()=>{
+						document.getElementById('submit').classList.toggle('correct');
+					},1000);
+				}
+				else {
+					document.getElementById('submit').classList.toggle('incorrect')	
+				}
 			});
 		</script>
 	</body>
