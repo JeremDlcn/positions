@@ -140,13 +140,16 @@
 			document.getElementById('submit').addEventListener('click', ()=>{
 				let mail = document.getElementById('mail-contact').reportValidity();
 				if (mail) {
-					document.getElementById('submit').classList.toggle('correct');
+					document.getElementById('submit').classList.add('correct');
 					setTimeout(()=>{
-						document.getElementById('submit').classList.toggle('correct');
-					},1000);
+						document.getElementById('submit').classList.remove('correct');
+					},700);
 				}
 				else {
-					document.getElementById('submit').classList.toggle('incorrect')	
+					document.getElementById('submit').classList.add('incorrect')
+					setTimeout(()=>{
+						document.getElementById('submit').classList.remove('incorrect');
+					},700);
 				}
 			});
 		</script>

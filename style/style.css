@@ -1,23 +1,23 @@
 @font-face {
     font-family: 'Lato';
-    src: url('../font/Lato/Lato-Regular.ttf') format('truetype'),
+    src: url('../font/Lato/Lato-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Lato';
-    src: url('../font/Lato/Lato-Bold.ttf') format('truetype'),
+    src: url('../font/Lato/Lato-Bold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
 }
 
 :root {
-	--primary-color: #FA5C19;
-	--secondary-color: #E4ECF5;
-	--main-font: #000000;
-	--gray: #DBDBDB;
-	--placeholder: #808080;
+    --primary-color: #FA5C19;
+    --secondary-color: #E4ECF5;
+    --main-font: #000000;
+    --gray: #DBDBDB;
+    --placeholder: #808080;
     --background: #FFFFFF;
     --shadow: 0px 0px 15px 5px rgba(0,0,0,0.05);
 
@@ -25,7 +25,8 @@
 
 
 *{
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
@@ -60,10 +61,19 @@ header, main{
 }
 
 header {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     width: 100%;
     margin-bottom: 3rem;
 }
@@ -73,13 +83,19 @@ header {
 }
 
 .menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 
 .menu a {
     margin-right: 2rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     position: relative;
 }
 
@@ -91,6 +107,8 @@ header {
     background-color: var(--primary-color);
     width: 0px;
     height: 2px;
+    -webkit-transition: all 200ms ease-in;
+    -o-transition: all 200ms ease-in;
     transition: all 200ms ease-in;
 }
 
@@ -99,15 +117,26 @@ header {
 }
 
 .account {
+    transition: transform .15s ease-in-out;
+}
+.account:active {
+    transform: scale(0.99);
+}
+.account {
     background-color: var(--primary-color);
     color: var(--background);
     font-size: 1rem;
     font-family: 'Lato';
     border: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     padding: .7rem 1.3rem;
     border-radius: 10px;
+    outline: none;
 }
 
 .account img {
@@ -122,6 +151,7 @@ header {
 /*Mobile Menu*/
 .navbar {
     display: none;
+    position: -webkit-sticky;
     position: sticky;
     width: 100vw;
     z-index: 1;
@@ -133,12 +163,23 @@ header {
     position: absolute;
     top: 8vh;
     pointer-events: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     padding-top: 5rem;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     background-color: var(--secondary-color);
-    transform: translateX(-100vh);
+    -webkit-transform: translateX(-100vh);
+        -ms-transform: translateX(-100vh);
+            transform: translateX(-100vh);
+    -webkit-transition: -webkit-transform 400ms ease-out;
+    transition: -webkit-transform 400ms ease-out;
+    -o-transition: transform 400ms ease-out;
     transition: transform 400ms ease-out;
+    transition: transform 400ms ease-out, -webkit-transform 400ms ease-out;
 }
 
 .navbar-menu a {
@@ -159,6 +200,8 @@ header {
     margin-left: 10vw;
     border-radius: 15px;
     background-color: var(--primary-color);
+    -webkit-transition: all 200ms ease-in;
+    -o-transition: all 200ms ease-in;
     transition: all 200ms ease-in;
 }
 
@@ -212,8 +255,12 @@ main::after {
 }
 
 #about-us div{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 h1{
@@ -238,6 +285,7 @@ h1{
 
 .service-container {
     width: 100%;
+    display: -ms-grid;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-gap: 2rem 2rem;
@@ -246,19 +294,34 @@ h1{
 
 .services {
     background-color: var(--background);
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     width: 200px;
     padding: 2rem 3rem;
     border-radius: 10px;
-    box-shadow: var(--shadow);
+    -webkit-box-shadow: var(--shadow);
+            box-shadow: var(--shadow);
+    -webkit-transition: -webkit-transform .3s ease-in-out;
+    transition: -webkit-transform .3s ease-in-out;
+    -o-transition: transform .3s ease-in-out;
     transition: transform .3s ease-in-out;
+    transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
 }
 
 .services:hover {
-    transform: scale(1.05);
-    perspective: 2rem;
+    -webkit-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+            transform: scale(1.05);
+    -webkit-perspective: 2rem;
+            perspective: 2rem;
 }
 
 .services img {
@@ -285,8 +348,12 @@ h1{
 #branding {
     margin: 6rem 0;
     position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: flex-end;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
 }
 
 #branding::after {
@@ -320,9 +387,14 @@ h1{
 
 /*Footer*/
 footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
     height: 20vh;
     background-color: var(--background);
 }
@@ -336,9 +408,15 @@ footer h2 {
     width: 40vw;
     min-height: 4rem;
     border-radius: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     position: relative;
 }
 
@@ -387,16 +465,26 @@ footer h2 {
 
 @media screen and (max-width: 1000px) {
     header {
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
     }
 
     .menu {
         margin-top: 20px;
         padding: 0 20px;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
     }
     
     .underline::after {
@@ -416,7 +504,10 @@ footer h2 {
         width: 100%;
     }
     footer {
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
         padding: 1rem 0;
         height: 25vh;
     }
@@ -437,9 +528,11 @@ footer h2 {
     header {
         top: 0;
         position: fixed;
+        padding: 0;
         margin-top: 0;
         z-index: 2;
-        box-shadow: var(--shadow);
+        -webkit-box-shadow: var(--shadow);
+                box-shadow: var(--shadow);
     }
 
     .logo {
@@ -454,7 +547,8 @@ footer h2 {
     }
 
     .account {
-        align-self: flex-start;
+        -ms-flex-item-align: start;
+            align-self: flex-start;
         margin-left: 10vw;
         margin-bottom: 2rem;
     }
@@ -484,6 +578,8 @@ footer h2 {
         width: 30px;
         height: 20px;
         outline: none;
+        -webkit-transition: all 250ms ease-in-out;
+        -o-transition: all 250ms ease-in-out;
         transition: all 250ms ease-in-out;
         margin-top: 5px;
     }
@@ -494,8 +590,14 @@ footer h2 {
         width: 100%;
         height: 4px;
         background: var(--main-font);
-        transform: translate(-50%, -50%);   
-        transition: transform 250ms ease-in-out;
+        -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);   
+        -webkit-transition: -webkit-transform 250ms ease-in-out;   
+        transition: -webkit-transform 250ms ease-in-out;   
+        -o-transition: transform 250ms ease-in-out;   
+        transition: transform 250ms ease-in-out;   
+        transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -506,16 +608,24 @@ footer h2 {
     }
 
     #burger.active::before { 
-        transform: translate(-50%, -50%) rotate(45deg);
+        -webkit-transform: translate(-50%, -50%) rotate(45deg); 
+            -ms-transform: translate(-50%, -50%) rotate(45deg); 
+                transform: translate(-50%, -50%) rotate(45deg);
     }
 
     #burger.active::after {
-        transform: translate(-50%, -50%) rotate(-45deg);
+        -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+            -ms-transform: translate(-50%, -50%) rotate(-45deg);
+                transform: translate(-50%, -50%) rotate(-45deg);
     }
 
     .navbar-menu.active {
-        transform: translateX(0vh);
+        -webkit-transform: translateX(0vh);
+            -ms-transform: translateX(0vh);
+                transform: translateX(0vh);
         pointer-events: initial;
+        -webkit-transition: all 400ms ease-out;
+        -o-transition: all 400ms ease-out;
         transition: all 400ms ease-out;
     }
 
@@ -536,7 +646,10 @@ footer h2 {
         border-radius: 0;
     }
     #about-us div {
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
     }
 
     #about-us h1, #about-us p{
